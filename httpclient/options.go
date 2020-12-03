@@ -36,3 +36,11 @@ func WithHTTPClient(client heimdall.Doer) Option {
 		c.client = client
 	}
 }
+
+//WithHTTPHeaderResponseCode set a header responseCode can retry
+func WithHTTPHeaderResponseCode(headerKey string, headerResponseCodes []string) Option {
+	return func(c *Client) {
+		c.headerKey = headerKey
+		c.headerResponseCodes = headerResponseCodes
+	}
+}

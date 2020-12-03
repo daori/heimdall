@@ -16,10 +16,12 @@ import (
 type Client struct {
 	client heimdall.Doer
 
-	timeout    time.Duration
-	retryCount int
-	retrier    heimdall.Retriable
-	plugins    []heimdall.Plugin
+	timeout             time.Duration
+	retryCount          int
+	retrier             heimdall.Retriable
+	plugins             []heimdall.Plugin
+	headerResponseCodes []string
+	headerKey           string
 }
 
 const (
@@ -161,7 +163,7 @@ func (c *Client) Do(request *http.Request) (*http.Response, error) {
 		}
 		c.reportRequestEnd(request, response)
 
-		if response.StatusCode >= http.StatusInternalServerError {
+		if response.StatusCode >= http.StatusInternalServerError || isHeaderNeedRetry(c, response) {
 			backoffTime := c.retrier.NextInterval(i)
 			time.Sleep(backoffTime)
 			continue
@@ -172,6 +174,23 @@ func (c *Client) Do(request *http.Request) (*http.Response, error) {
 	}
 
 	return response, multiErr.HasError()
+}
+
+func isHeaderNeedRetry(c *Client, response *http.Response) bool {
+	if contains(c.headerResponseCodes, response.Header.Get(c.headerKey)) {
+		return true
+	}
+	return false
+}
+
+func contains(slice []string, item string) bool {
+	set := make(map[string]struct{}, len(slice))
+	for _, s := range slice {
+		set[s] = struct{}{}
+	}
+
+	_, ok := set[item]
+	return ok
 }
 
 func (c *Client) reportRequestStart(request *http.Request) {
