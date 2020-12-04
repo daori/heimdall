@@ -3,7 +3,7 @@ package httpclient
 import (
 	"time"
 
-	"github.com/gojektech/heimdall/v6"
+	"github.com/daori/heimdall/v6"
 )
 
 // Option represents the client options

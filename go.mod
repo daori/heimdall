@@ -7,8 +7,8 @@ require (
 	github.com/afex/hystrix-go v0.0.0-20180209013831-27fae8d30f1a
 	github.com/cactus/go-statsd-client/statsd v0.0.0-20200423205355-cb0885a1018c // indirect
 	github.com/davecgh/go-spew v1.1.0 // indirect
-	github.com/gojektech/valkyrie v0.0.0-20180215180059-6aee720afcdf
-	github.com/gopherjs/gopherjs v0.0.0-20181103185306-d547d1d9531e // indirect
+	github.com/daori/heimdall/v6 v6.1.0
+	github.com/gojektech/valkyrie v0.0.0-20190210220504-8f62c1e7ba45
 	github.com/jtolds/gls v4.2.1+incompatible // indirect
 	github.com/mattn/goveralls v0.0.6 // indirect
 	github.com/pkg/errors v0.8.0
