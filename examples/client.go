@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gojektech/heimdall/v6"
-	"github.com/gojektech/heimdall/v6/httpclient"
-	"github.com/gojektech/heimdall/v6/hystrix"
+	"github.com/daori/heimdall/v6"
+	"github.com/daori/heimdall/v6/httpclient"
+	"github.com/daori/heimdall/v6/hystrix"
 	"github.com/pkg/errors"
 )
 

@@ -33,7 +33,7 @@ All HTTP methods are exposed as a fluent interface.
 
 ## Installation
 ```
-go get -u github.com/gojektech/heimdall/v6
+go get -u github.com/daori/heimdall/v6
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ go get -u github.com/gojektech/heimdall/v6
 This package can be used by adding the following import statement to your `.go` files.
 
 ```go
-import "github.com/gojektech/heimdall/v6/httpclient" // with go modules enabled (GO111MODULE=on or outside GOPATH)
+import "github.com/daori/heimdall/v6/httpclient" // with go modules enabled (GO111MODULE=on or outside GOPATH)
 import "github.com/gojektech/heimdall/httpclient" // with go modules disabled
 ```
 
@@ -89,7 +89,7 @@ fmt.Println(string(body))
 To import hystrix package of heimdall.
 
 ```go
-import "github.com/gojektech/heimdall/v6/hystrix" // with go modules enabled (GO111MODULE=on or outside GOPATH)
+import "github.com/daori/heimdall/v6/hystrix" // with go modules enabled (GO111MODULE=on or outside GOPATH)
 import "github.com/gojektech/heimdall/hystrix" // with go modules disabled
 ```
 
@@ -314,7 +314,7 @@ To add a plugin to an existing client, use the `AddPlugin` method of the client.
 An example, with the [request logger plugin](/plugins/request_logger.go):
 
 ```go
-// import "github.com/gojektech/heimdall/v6/plugins"
+// import "github.com/daori/heimdall/v6/plugins"
 
 client := heimdall.NewHTTPClient(timeout)
 requestLogger := plugins.NewRequestLogger(nil, nil)
